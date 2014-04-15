@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415161730) do
+ActiveRecord::Schema.define(version: 20140415162539) do
+
+  create_table "product_fields", force: true do |t|
+    t.string   "name"
+    t.string   "field_type"
+    t.boolean  "required"
+    t.integer  "product_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "product_fields", ["product_type_id"], name: "index_product_fields_on_product_type_id"
 
   create_table "product_types", force: true do |t|
     t.string   "name"
